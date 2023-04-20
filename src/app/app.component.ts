@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SignalRClientService } from './signal-rclient.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SignalRClient';
+  constructor(private signalRClientService:SignalRClientService)
+  {
+
+  }
+
+  ngOnInit(): void {
+    this.signalRClientService.startConnection();
+    this.signalRClientService.addTransferNotificationDataListener();
+ 
+  }
 }
